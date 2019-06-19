@@ -4,14 +4,29 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
 
 const appState = observable ({
-    count: 45
+    count: 0,
+    incCount: () => {
+        appState.count +=1;
+    },
+    decCount: () => {
+        appState.count -=1;
+    }
 });
 
-const Counter = props =>
-    <div>{props.appState.count}</div>
+const Counter = observer(props => (
+    <section>
+        {props.appState.count}
+        <div>
+            <button onClick={props.appState.incCount}>Inc</button>
+            <button onClick={props.appState.decCount}>Dec</button>
+        </div>
+    </section>
+));
+
 
 ReactDOM.render(
     <Counter appState={appState} />, 
