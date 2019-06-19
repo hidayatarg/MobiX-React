@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Counter from './components/Counter';
 import * as serviceWorker from './serviceWorker';
 import { observable } from 'mobx';
-import { observer } from 'mobx-react';
 
 
 const appState = observable ({
@@ -16,16 +16,6 @@ const appState = observable ({
         appState.count -=1;
     }
 });
-
-const Counter = observer(props => (
-    <section>
-        {props.appState.count}
-        <div>
-            <button onClick={props.appState.incCount}>Inc</button>
-            <button onClick={props.appState.decCount}>Dec</button>
-        </div>
-    </section>
-));
 
 
 ReactDOM.render(
