@@ -5,16 +5,17 @@ import App from './App';
 import Counter from './components/Counter';
 import * as serviceWorker from './serviceWorker';
 import { observable } from 'mobx';
-
+import items from './components/item'
 
 const appState = observable ({
     count: 0,
-    incCount: () => {
-        appState.count +=1;
-    },
-    decCount: () => {
-        appState.count -=1;
-    }
+    data: items,
+    // incCount: () => {
+    //     appState.count +=1;
+    // },
+    // decCount: () => {
+    //     appState.count -=1;
+    // }
 });
 
 

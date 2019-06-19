@@ -1,5 +1,4 @@
 import React from 'react'
-import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 
 const Counter = observer(props => (
@@ -10,6 +9,15 @@ const Counter = observer(props => (
                 <button onClick={props.appState.incCount}>Inc</button>
                 <button onClick={props.appState.decCount}>Dec</button>
             </div>
+            <p>Gelen Data surda</p>
+            {
+                props.appState.data.map(movie =>
+                   <ul>
+                       <li key={movie.title}>{movie.title}-{movie.description}</li>
+                   </ul>
+
+                )
+            }
         </div>
 ));
 
